@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report an Issue – Smart City Issue Reporter</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <span class="flag">🇧🇩</span> Smart City Reporter
+  </a>
+  <ul>
+    <li><a href="/" class="active">Report Issue</a></li>
+    <li><a href="/dashboard.html">Dashboard</a></li>
+    <li><a href="/admin.html">Admin</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Report a City Issue</h1>
+  <p>Help build a better Bangladesh — report urban problems in your neighbourhood so the right authorities can act.</p>
+</div>
+
+<div class="container">
+  <div class="grid-2">
+
+    <!-- Report form -->
+    <div class="card" id="report-card">
+      <h2>📋 Submit New Issue</h2>
+      <form id="issue-form" novalidate>
+
+        <div class="form-group">
+          <label for="title">Issue Title <span class="required">*</span></label>
+          <input type="text" id="title" name="title" placeholder="e.g. Large pothole on main road" maxlength="120" />
+          <div class="field-error" id="err-title">Title must be at least 5 characters.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description <span class="required">*</span></label>
+          <textarea id="description" name="description" placeholder="Describe the issue in detail…" maxlength="2000"></textarea>
+          <div class="field-error" id="err-description">Description must be at least 10 characters.</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="category">Category <span class="required">*</span></label>
+            <select id="category" name="category">
+              <option value="">— Select —</option>
+              <option value="road">🛣️ Road &amp; Pavement</option>
+              <option value="water">💧 Water Supply</option>
+              <option value="electricity">⚡ Electricity</option>
+              <option value="waste">🗑️ Waste Management</option>
+              <option value="sewage">🚰 Sewage &amp; Drainage</option>
+              <option value="other">📌 Other</option>
+            </select>
+            <div class="field-error" id="err-category">Please select a category.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="district">District <span class="required">*</span></label>
+            <select id="district" name="district">
+              <option value="">— Select District —</option>
+              <option>Dhaka</option><option>Chittagong</option>
+              <option>Rajshahi</option><option>Khulna</option>
+              <option>Barishal</option><option>Sylhet</option>
+              <option>Rangpur</option><option>Mymensingh</option>
+              <option>Cumilla</option><option>Narayanganj</option>
+              <option>Gazipur</option><option>Tangail</option>
+              <option>Bogura</option><option>Jessore</option>
+              <option>Cox's Bazar</option><option>Other</option>
+            </select>
+            <div class="field-error" id="err-district">Please select a district.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="area">Area / Neighbourhood <span class="required">*</span></label>
+            <input type="text" id="area" name="area" placeholder="e.g. Mirpur-10, Gulshan" maxlength="80" />
+            <div class="field-error" id="err-area">Area is required.</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="reported_by">Your Name <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <input type="text" id="reported_by" name="reported_by" placeholder="Your name" maxlength="80" />
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact <span style="color:var(--muted);font-weight:400">(optional)</span></label>
+            <input type="text" id="contact" name="contact" placeholder="Phone or email" maxlength="80" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+          📨 Submit Report
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Success panel (hidden by default) -->
+    <div class="card hidden" id="success-card" style="display:none;text-align:center;padding:2.5rem 1.5rem;">
+      <div style="font-size:3.5rem;margin-bottom:1rem;">✅</div>
+      <h2 style="border:none;font-size:1.4rem;margin-bottom:0.5rem;">Issue Reported!</h2>
+      <p style="color:var(--muted);margin-bottom:1rem;">Your report has been submitted. Use the tracking ID below to follow up.</p>
+      <div style="background:var(--light);border-radius:var(--radius);padding:1rem;font-size:1.6rem;font-weight:700;letter-spacing:2px;color:var(--green);margin-bottom:1.25rem;" id="tracking-id"></div>
+      <a href="/dashboard.html" class="btn btn-outline" style="margin-right:0.5rem;">View Dashboard</a>
+      <button class="btn btn-primary" id="report-another">Report Another</button>
+    </div>
+
+    <!-- How it works -->
+    <div class="card">
+      <h2>ℹ️ How It Works</h2>
+      <ol style="padding-left:1.25rem;line-height:2;">
+        <li>Fill in the form with details about the issue.</li>
+        <li>Your report is assigned a tracking ID immediately.</li>
+        <li>City authorities review and update the status.</li>
+        <li>Track progress on the <a href="/dashboard.html" style="color:var(--green)">Dashboard</a>.</li>
+      </ol>
+      <hr style="margin:1rem 0;border:none;border-top:1px solid var(--border);" />
+      <h2 style="border:none;margin-bottom:0.5rem;">📊 Recent Activity</h2>
+      <div id="recent-stats" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;">
+        <div class="stat-box total" style="flex:1;min-width:80px;">
+          <div class="number" id="stat-total">—</div>
+          <div class="label">Total Reports</div>
+        </div>
+        <div class="stat-box pending" style="flex:1;min-width:80px;">
+          <div class="number" id="stat-pending">—</div>
+          <div class="label">Pending</div>
+        </div>
+        <div class="stat-box resolved" style="flex:1;min-width:80px;">
+          <div class="number" id="stat-resolved">—</div>
+          <div class="label">Resolved</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast-container" id="toasts"></div>
+
+<footer>
+  <p>🇧🇩 Smart City Issue Reporter &mdash; Empowering citizens of Bangladesh &bull; Built for transparent urban governance</p>
+</footer>
+
+<script src="/js/utils.js"></script>
+<script src="/js/report.js"></script>
+</body>
+</html>
