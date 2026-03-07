@@ -262,7 +262,7 @@
             display: block;
         }
 
-        /* Social Links */
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -293,7 +293,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Footer */
+
         .footer {
             position: absolute;
             bottom: 20px;
@@ -358,7 +358,7 @@
             }
         }
 
-        /* Pulse animation for logo */
+  
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -374,7 +374,7 @@
     </style>
 </head>
 <body>
-    <!-- Floating Particles -->
+   
     <div class="particles">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -433,7 +433,7 @@
             </div>
         </div>
 
-        <!-- Social Links -->
+  
         <div class="social-links">
             <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
@@ -496,7 +496,7 @@
             }, 5000);
         });
 
-        // Add hover effect to countdown items
+   
         document.querySelectorAll('.countdown-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.background = 'rgba(255, 255, 255, 0.25)';
@@ -508,3 +508,4 @@
     </script>
 </body>
 </html>
+
